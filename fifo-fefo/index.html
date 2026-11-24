@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El yogur que caducó en la estantería aunque se respetó el FIFO</title>
+<meta name="description" content="Por qué sacar primero lo que entró primero puede dejar caducar un lote, qué cambia con FEFO y qué hace falta registrar para aplicarlo.">
+<link rel="canonical" href="https://canallogistica25-wq.github.io/fifo-fefo/">
+<style>
+  :root { --ink:#1b2430; --soft:#5a6577; --line:#e2e6ec; --bg:#ffffff; --accent:#c24100; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#e9eef5; --soft:#a3afc0; --line:#22324a; --bg:#0f1b2d; --accent:#ff9a66; } }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:1.9rem; line-height:1.25; margin:0 0 20px; }
+  h2 { font-size:1.25rem; margin:36px 0 10px; }
+  p, li { margin:0 0 14px; }
+  ul { padding-left:22px; }
+  a { color:var(--accent); }
+  footer { margin-top:48px; padding-top:16px; border-top:1px solid var(--line); color:var(--soft); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+<article>
+<h1>El yogur que caducó en la estantería aunque se respetó el FIFO</h1>
+
+<p>En muchos almacenes la regla es sencilla: sale primero lo que entró primero. Funciona bien hasta que llegan dos lotes del mismo producto con fechas de caducidad que no siguen el orden de entrada. Entonces el almacén cumple su norma al pie de la letra y, aun así, acaba tirando mercancía.</p>
+
+<h2>Un caso con fechas de ejemplo</h2>
+
+<p>Las fechas son inventadas, para ilustrar el problema.</p>
+
+<ul>
+<li><strong>Lote A:</strong> entra el día 3 y caduca el día 20.</li>
+<li><strong>Lote B:</strong> entra el día 5 y caduca el día 15.</li>
+</ul>
+
+<p>Con FIFO, los pedidos de esa semana se sirven del lote A, porque entró antes. El lote B, que vence cinco días antes, se queda detrás. Si la rotación es lenta, el día 15 sigue en la estantería y ya no se puede vender.</p>
+
+<p>Con FEFO, el orden lo marca la fecha de caducidad: primero sale el lote B y después el A. El producto es el mismo y el almacén es el mismo; lo único que cambia es qué fecha se mira.</p>
+
+<h2>Lo que hace falta para trabajar con FEFO</h2>
+
+<p><strong>Registrar el lote y la fecha al recibir.</strong> Si la fecha de caducidad no queda anotada en la entrada, nadie podrá ordenar por ella después. Es el paso que más se salta cuando hay prisa en el muelle.</p>
+
+<p><strong>Separar lo que no se puede servir.</strong> Un lote dañado, bloqueado por calidad o con menos vida útil de la que pide el cliente no entra en la cola, por cerca que esté su fecha.</p>
+
+<p><strong>Que el sistema o el operario vean la fecha.</strong> Con un sistema de gestión de almacén, la propuesta de recogida puede ordenarse sola. Sin él, la fecha tiene que estar visible en la etiqueta y la ubicación, no solo en el albarán.</p>
+
+<h2>Cuándo basta con FIFO</h2>
+
+<p>Si el producto no tiene una fecha que limite su venta o su uso, FIFO sigue siendo una buena regla para que la mercancía antigua no se quede olvidada. El problema aparece al aplicarlo por costumbre a productos en los que la fecha de entrada no es la que importa.</p>
+
+<p>Si trabajas con perecederos, cosmética o medicamentos, merece la pena repasar las <a href="https://canallogistica.com/diferencias-fifo-fefo/" target="_blank" rel="noopener">diferencias entre FIFO y FEFO</a> y en qué casos conviene cada uno.</p>
+</article>
+<footer>Canal Logística · Notas de carga y almacén · <a href="/">Por qué en un tráiler caben 33 europalés y no 34</a></footer>
+</main>
+</body>
+</html>
